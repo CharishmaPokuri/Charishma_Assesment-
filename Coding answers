@@ -1,0 +1,163 @@
+1St question:
+
+ Javascript code:
+
+function manipulateArray(arr) {
+    return arr.map(num => num % 2 === 0 ? num * 2 : num);
+}
+
+// Example usage:
+const inputArray = [1, 2, 3, 4];
+const outputArray = manipulateArray(inputArray);
+console.log(outputArray); // Output: [1, 4, 3, 8]
+
+2nd Question: React
+
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <div>
+      <p>Current Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+
+3rd question: Node.Js
+
+1)Initialize the Project:
+Create a new directory for project and navigate into it.
+Run npm init -y to initialize a new Node.js project.
+
+Install Express:
+Run npm install express to install Express.
+Create the Application:
+Create a file named app.js and add the following code:
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.get('/message', (req, res) => {
+  res.json({ message: 'Hello, World!' });
+});
+
+app.listen(port, () => {
+  console.log(Server is running on http://localhost:${port});
+});
+Import Express: We import the Express module.
+Create an Express Application: We create an instance of an Express application.
+Define the Endpoint: We define a GET endpoint at /message that responds with a JSON object containing the message "Hello, World!".
+Start the Server: We start the server on port 3000 and log a message to the console.
+Running the Application:
+Save the app.js file.
+Run node app.js in your terminal.
+Open your browser and navigate to http://localhost:3000/message. You should see the JSON response: { "message": "Hello, World!" }.
+
+
+4th question: Next.js
+
+1.	Create a JSON file with your data. Let’s name it data.json and place it in the public directory:
+JSON
+// public/data.json
+[
+    { "id": 1, "name": "Item 1" },
+    { "id": 2, "name": "Item 2" },
+    { "id": 3, "name": "Item 3" }
+] 
+2.	Create a Next.js page that uses getStaticProps to fetch this data and render it. Let’s name this page items.js and place it in the pages directory:
+JavaScript
+// pages/items.js
+import fs from 'fs';
+import path from 'path';
+
+export async function getStaticProps() {
+    const filePath = path.join(process.cwd(), 'public', 'data.json');
+    const jsonData = fs.readFileSync(filePath, 'utf8');
+    const items = JSON.parse(jsonData);
+
+    return {
+        props: {
+            items
+        }
+    };
+}
+
+const ItemsPage = ({ items }) => {
+    return (
+        <div>
+            <h1>List of Items</h1>
+            <ul>
+                {items.map(item => (
+                    <li key={item.id}>{item.name}</li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default ItemsPage;
+
+5th Question: SQL
+
+1.	Create a table users with columns for id, name, and email:
+SQL
+CREATE TABLE users (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100)
+);
+ 
+2.	Insert one sample user into the table:
+
+INSERT INTO users (id, name, email) VALUES (1, 'John Doe', 'john.doe@example.com');
+ 
+3.	Retrieve all users from the table:
+
+SELECT * FROM users;
+ 
+These statements will create a table named users, insert a sample user with the name “John Doe” and email “john.doe@example.com”, and then retrieve all users from the table.
+
+
+7th question: PHP
+
+1.	Create a new PHP file for your plugin. Let’s name it greeting-plugin.php.
+2.	Add the following code to greeting-plugin.php:
+
+/*
+Plugin Name: Greeting Plugin
+Description: A simple plugin that adds a [greeting] shortcode.
+Version: 1.0
+Author: Your Name
+*/
+
+// Function to output the greeting message
+function greeting_shortcode() {
+    return "Welcome to My Site!";
+}
+
+// Register the shortcode
+add_shortcode('greeting', 'greeting_shortcode');
+?> 
+
+3.	Upload the plugin file to your WordPress site:
+o	Go to your WordPress dashboard.
+o	Navigate to Plugins > Add New.
+o	Click on Upload Plugin and upload the greeting-plugin.php file.
+o	Activate the plugin.
+
+4.	Use the shortcode in your posts or pages:
+o	Edit a post or page.
+o	Add the [greeting] shortcode where you want the message to appear.
+o	Publish or update the post/page.
+
+
+
